@@ -35,7 +35,7 @@ Widget customListTile(Article article, BuildContext context) {
               //let's add the height
 
               image: DecorationImage(
-                  image: NetworkImage(article.urlToImage), fit: BoxFit.cover),
+                  image: NetworkImage(article.img), fit: BoxFit.cover),
               borderRadius: BorderRadius.circular(12.0),
             ),
           ),
@@ -45,11 +45,11 @@ Widget customListTile(Article article, BuildContext context) {
           Container(
             padding: EdgeInsets.all(6.0),
             decoration: BoxDecoration(
-              color: Colors.orange,
+              color: Colors.cyan,
               borderRadius: BorderRadius.circular(30.0),
             ),
             child: Text(
-              article.source.name,
+              article.nome,
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -59,7 +59,7 @@ Widget customListTile(Article article, BuildContext context) {
             height: 8.0,
           ),
           Text(
-            article.title,
+            article.nome,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16.0,
