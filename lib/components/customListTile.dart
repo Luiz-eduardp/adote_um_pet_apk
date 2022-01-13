@@ -29,7 +29,7 @@ Widget customListTile(Article article, BuildContext context) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 200.0,
+            height: 500.0,
             width: double.infinity,
             decoration: BoxDecoration(
               //let's add the height
@@ -49,7 +49,7 @@ Widget customListTile(Article article, BuildContext context) {
               borderRadius: BorderRadius.circular(30.0),
             ),
             child: Text(
-              article.nome,
+              article.especie,
               style: TextStyle(
                 color: Colors.white,
               ),
