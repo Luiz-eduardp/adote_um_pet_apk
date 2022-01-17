@@ -1,7 +1,11 @@
 //Now let's create the article details page
 
+// ignore_for_file: deprecated_member_use
+
 import 'package:NewsApp/model/article_model.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
 
 class ArticlePage extends StatelessWidget {
   final Article article;
@@ -22,7 +26,7 @@ class ArticlePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 200.0,
+              height: 400.0,
               width: double.infinity,
               decoration: BoxDecoration(
                 //let's add the height
@@ -42,7 +46,7 @@ class ArticlePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30.0),
               ),
               child: Text(
-                article.nome,
+                article.especie,
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -51,9 +55,37 @@ class ArticlePage extends StatelessWidget {
             SizedBox(
               height: 8.0,
             ),
+            Linkify(
+              onOpen: (link) async {
+                if (await canLaunch(link.url)) {
+                  await launch(link.url);
+                } else {
+                  throw 'Could not launch $link';
+                }
+              },
+              text: article.contato,
+              style: TextStyle(color: Colors.greenAccent),
+              linkStyle: TextStyle(color: Colors.greenAccent),
+            ),
             Text(
               // texto aberto
-              article.especie,
+              'Nome: ' + article.nome,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16.0,
+              ),
+            ),
+            Text(
+              // texto aberto
+              'Sexo: ' + article.sexo,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16.0,
+              ),
+            ),
+            Text(
+              // texto aberto
+              'Idade: ' + article.idade,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16.0,

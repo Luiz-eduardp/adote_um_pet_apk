@@ -4,7 +4,7 @@ import 'package:NewsApp/model/article_model.dart';
 import 'package:http/http.dart';
 
 class ApiService {
-  final endPointUrl = "https://api.npoint.io/78fb19b494249ab9973c";
+  final endPointUrl = "https://api.npoint.io/7ccbd653bd2156f81fe8";
 
   Future<List<Article>> getArticle() async {
     Response res = await get(endPointUrl);
